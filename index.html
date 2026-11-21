@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Выбор даты и времени — Барбершоп «Контур»</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page">
+  <div class="booking">
+    <header class="booking-header">
+      <a class="brand" href="https://www.figma.com/proto/oosrQEJ6Nu3GuOsR931yX5?node-id=1-44&amp;starting-point-node-id=1-44">
+        <strong class="brand__name">Контур</strong>
+        <span class="brand__caption">Барбершоп · Ярославль</span>
+      </a>
+      <span class="booking-header__label">Онлайн-запись</span>
+    </header>
+
+    <main class="booking-main">
+      <nav class="progress" aria-label="Шаги записи">
+        <ol class="progress__list">
+          <li class="progress__step"><span class="progress__number">1</span> Мастер</li>
+          <li class="progress__step"><span class="progress__number">2</span> Услуга</li>
+          <li class="progress__step" aria-current="step"><span class="progress__number">3</span> Дата и время</li>
+          <li class="progress__step"><span class="progress__number">4</span> Контакты</li>
+          <li class="progress__step"><span class="progress__number">5</span> Подтверждение</li>
+        </ol>
+      </nav>
+
+      <div class="booking-heading">
+        <h1 class="booking-heading__title">Выберите дату и время</h1>
+        <p class="booking-heading__hint">Выберите день в календаре, затем нажмите на свободное время.</p>
+      </div>
+
+      <div class="schedule">
+        <section class="schedule-card calendar" aria-labelledby="month">
+          <div class="calendar__header">
+            <h2 class="calendar__month" id="month" aria-live="polite"></h2>
+            <div class="calendar__navigation">
+              <button class="action month-arrow" id="previous-month" type="button" aria-label="Предыдущий месяц">‹</button>
+              <button class="action month-arrow" id="next-month" type="button" aria-label="Следующий месяц">›</button>
+            </div>
+          </div>
+          <div class="calendar__grid" id="calendar-grid" role="group" aria-label="Выбор дня"></div>
+        </section>
+
+        <section class="schedule-card time-card" aria-labelledby="time-title">
+          <div class="time-card__available">
+            <h2 class="time-card__title" id="time-title">Свободное время</h2>
+            <time class="time-card__date" id="slot-date"></time>
+            <div class="slots" id="time-slots" role="group" aria-label="Время визита"></div>
+            <p class="time-card__message" id="no-slots" role="status" hidden>На этот день свободных слотов нет.</p>
+          </div>
+        </section>
+      </div>
+
+      <div class="booking-summary">
+        <a class="action action--back" href="https://www.figma.com/proto/oosrQEJ6Nu3GuOsR931yX5?node-id=1-175">← К услугам</a>
+        <p class="booking-summary__selection" id="booking-selection" aria-live="polite"></p>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
