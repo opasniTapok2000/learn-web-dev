@@ -133,27 +133,33 @@
   user-select: none;
 }
 
+.calendar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.calendar__month { margin: 0; }
+
+.calendar__navigation { display: flex; gap: 4px; }
+
+button.day { border: 0; padding: 0; font-family: inherit; }
 .day--choice { background: var(--soft); color: var(--accent); cursor: pointer; }
-.day--choice:hover { background: var(--soft-hover); }
+.day--choice:not(:disabled):hover { background: var(--soft-hover); }
+.day--choice:disabled { background: var(--canvas); color: #65736b; opacity: .74; cursor: default; }
+.day--choice[aria-pressed="true"],
+.slot[aria-pressed="true"] { background: var(--accent); color: var(--surface); }
+.day--choice[aria-pressed="true"]:hover,
+.slot[aria-pressed="true"]:hover { background: var(--accent-dark); }
 
-#day-24:checked ~ [for="day-24"],
-#day-25:checked ~ [for="day-25"],
-.slot-choice:checked + .slot { background: var(--accent); color: var(--surface); }
-#day-24:checked ~ [for="day-24"]:hover,
-#day-25:checked ~ [for="day-25"]:hover,
-.slot-choice:checked + .slot:hover { background: var(--accent-dark); }
-
-.time-card__available,
-.time-card__busy {
+.time-card__available {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 14px;
 }
-
-.time-card__busy,
-.schedule:has(#day-25:checked) .time-card__available { display: none; }
-.schedule:has(#day-25:checked) .time-card__busy { display: flex; }
 
 .time-card__title { margin: 0; font-size: 22px; line-height: 27px; }
 .time-card__date { font-size: 15px; font-weight: 500; }
@@ -191,20 +197,32 @@
 .slot { padding-inline: 5px; }
 .slot:disabled { background: #f4f7f4; color: #64796f; cursor: default; opacity: 0.72; }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
+.month-arrow {
+  min-height: 32px;
+  width: 32px;
+  padding: 0;
+  font-size: 22px;
+}
+
+.booking-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  width: 100%;
+}
+
+.booking-summary__selection {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--accent);
 }
 
 .brand:focus-visible,
 .action:focus-visible,
-#day-24:focus-visible ~ [for="day-24"],
-#day-25:focus-visible ~ [for="day-25"],
-.slot-choice:focus-visible + .slot {
+.day--choice:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
